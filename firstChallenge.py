@@ -29,17 +29,15 @@ def main():
                                 start_index = index
                                 is_in_number = True
                             number = number*10 + int(ch)
-                        else:
-                            if is_in_number:
-                                end_index = index - 1
-                                is_in_number = False
-                                if has_adjacent_special_character(line_index, start_index, end_index, lines):
-                                    print(number)
-                                    sum += number
-                                number = 0
+                        elif is_in_number:
+                            end_index = index - 1
+                            is_in_number = False
+                            if has_adjacent_special_character(line_index, start_index, end_index, lines):
+                                print(number)
+                                sum += number
+                            number = 0
+                output_file.write(str(sum))
 
-                print(lines)
-                print(sum)                
                             
     except FileNotFoundError:
         print("The file does not exist!")
